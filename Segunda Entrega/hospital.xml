@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<DIAGRAMA ID="1" TIPO="tpLogico" UniversalUnicID="BB48-8A-85D9-CF-6DD5-E8-43">
+<DIAGRAMA ID="1" TIPO="tpLogico" UniversalUnicID="6367-1E-C92-A4-7FE3-6-C">
 <InfoDiagrama ID="1">
 <Versao Valor="3.2.0"/>
 <Autores/>
@@ -390,8 +390,8 @@
 <Unique Valor="false"/>
 </Campo>
 <Campo>
-<Texto>fk_tarefas_tarefas_PK</Texto>
-<Tipo/>
+<Texto>cod_tarefas</Texto>
+<Tipo>INT</Tipo>
 <Complemento/>
 <Dicionario/>
 <Observacao/>
