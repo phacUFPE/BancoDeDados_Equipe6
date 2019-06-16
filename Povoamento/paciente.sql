@@ -1,0 +1,10 @@
+SELECT * FROM pacienteINSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (11176654943, 'José Aldo Menezes', DATE '1975-03-04', null, 1);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (12345678900, 'José Aldo Filho', DATE '2005-02-03', 11176654943, 2);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (09385792874, 'Maria Emilia', DATE '1987-06-14', null, 1);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (87598912944, 'Carlos José Fernz', DATE '1956-01-30', null, 1);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (35476585333, 'Juliana Gonzalez', DATE '1981-09-26', null, 1);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (78407583628, 'Mario Bros', DATE '1990-11-01', null, 1);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (48984391234, 'Emilia Limeira de Souza', DATE '1989-07-14', null, 1);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (99863759281, 'Mariana Ulisses de Lima', DATE '1943-12-12', null, 1);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (94608573829, 'Pedro Luiz de Lima', DATE '2008-07-10', 99863759281, 2);
+INSERT INTO paciente(CPF, nome, data_nascimento, CPF_responsavel, paciente_tipo) VALUES (47492012854, 'Luciano Fernandez', DATE '1977-03-04', null, 1);
