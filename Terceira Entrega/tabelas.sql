@@ -34,9 +34,9 @@ CREATE TABLE funcionario(
 );
 
 CREATE TABLE telefone_paciente(
-    cod_paciente INT PRIMARY KEY,
+    cod_paciente INT,
     telefone VARCHAR(14),
-	CONSTRAINT pk_tel_pac_func PRIMARY KEY (cod_funcionario, telefone),
+	CONSTRAINT pk_tel_pac_func PRIMARY KEY (cod_paciente, telefone),
     CONSTRAINT tel_pac_fk FOREIGN KEY (cod_paciente) REFERENCES paciente(CPF) ON DELETE CASCADE
 );
 
