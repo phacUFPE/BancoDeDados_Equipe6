@@ -29,7 +29,6 @@ CREATE TABLE funcionario(
     data_nascimento DATE,
     data_contratacao DATE,
     COREN VARCHAR(9) UNIQUE,
-    cod_tarefas INT,
     CRM VARCHAR(13) UNIQUE,
     funcionario_tipo VARCHAR(255)
 );
@@ -49,9 +48,10 @@ CREATE TABLE telefone_funcionario(
 );
 
 CREATE TABLE tarefas(
-    cod_tarefa INT NOT NULL,
+    cod_funcionario INT NOT NULL,
     tarefas VARCHAR(255),
-    CONSTRAINT pk_tarefas PRIMARY KEY (cod_tarefa, tarefas)
+    CONSTRAINT pk_tarefas PRIMARY KEY (cod_funcionario, tarefas),
+	CONSTRAINT tarefas_fk FOREIGN KEY (cod_funcionario) REFERENCES funcionario(CPF)
 );
 
 CREATE TABLE hospital_ambulatorio(
@@ -90,7 +90,8 @@ CREATE TABLE cuida(
 CREATE TABLE consulta(
     cod_funcionario INT,
     cod_paciente INT,
-    CONSTRAINT pk_consulta PRIMARY KEY (cod_funcionario, cod_paciente),
+	data_consulta DATE,
+    CONSTRAINT pk_consulta PRIMARY KEY (cod_funcionario, cod_paciente, data_consulta),
     CONSTRAINT func_cons_fk FOREIGN KEY (cod_funcionario) REFERENCES funcionario(CPF) ON DELETE CASCADE,
     CONSTRAINT pac_cons_fk FOREIGN KEY (cod_paciente) REFERENCES paciente(CPF) ON DELETE CASCADE
 );
