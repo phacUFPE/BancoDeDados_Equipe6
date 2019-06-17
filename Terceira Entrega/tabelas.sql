@@ -37,13 +37,15 @@ CREATE TABLE funcionario(
 CREATE TABLE telefone_paciente(
     cod_paciente INT PRIMARY KEY,
     telefone VARCHAR(14),
-    CONSTRAINT fk_tel_pac FOREIGN KEY (cod_paciente) REFERENCES paciente(CPF) ON DELETE CASCADE
+	CONSTRAINT pk_tel_pac_func PRIMARY KEY (cod_funcionario, telefone),
+    CONSTRAINT tel_pac_fk FOREIGN KEY (cod_paciente) REFERENCES paciente(CPF) ON DELETE CASCADE
 );
 
 CREATE TABLE telefone_funcionario(
-    cod_funcionario INT PRIMARY KEY,
+    cod_funcionario INT,
     telefone VARCHAR(14),
-    CONSTRAINT fk_tel_func FOREIGN KEY (cod_funcionario) REFERENCES funcionario(CPF) ON DELETE CASCADE
+	CONSTRAINT pk_tel_func_func PRIMARY KEY (cod_funcionario, telefone),
+    CONSTRAINT tel_func_fk FOREIGN KEY (cod_funcionario) REFERENCES funcionario(CPF) ON DELETE CASCADE
 );
 
 CREATE TABLE tarefas(
