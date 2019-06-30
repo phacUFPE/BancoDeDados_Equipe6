@@ -24,6 +24,8 @@ BEGIN
     RETURN resultado;
 END;
 
+SELECT dependente(11176654943) FROM dual;
+
 CREATE OR REPLACE PROCEDURE listar_pacientes_tipo(tipo paciente.paciente_tipo%type)
 AS
     CURSOR pac IS SELECT * FROM paciente;
@@ -49,6 +51,8 @@ EXCEPTION
     WHEN NO_DATA_FOUND THEN
         dbms_output.put_line('Paciente nao encontrado!');
 END;
+
+EXEC listar_pacientes_tipo(1);
 
 CREATE OR REPLACE TRIGGER verificar_paciente_tipo
 BEFORE INSERT OR UPDATE ON paciente
