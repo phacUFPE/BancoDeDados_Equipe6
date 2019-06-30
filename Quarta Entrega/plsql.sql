@@ -1,4 +1,3 @@
--- ESTA PODE NÃƒO ESTAR CERTA
 CREATE OR REPLACE TRIGGER funcionario_tarefas BEFORE INSERT ON tarefas FOR EACH ROW
 DECLARE
     max_trf INT NOT NULL DEFAULT 10;
@@ -10,9 +9,22 @@ BEGIN
     END IF;
 END;
 
-----------------------------
+CREATE OR REPLACE FUNCTION dependente(var_cpf paciente.cpf%type)
+RETURN VARCHAR
+IS
+    var_tipo paciente.paciente_tipo%type;
+    resultado VARCHAR(15);
+BEGIN
+    SELECT paciente_tipo INTO var_tipo FROM paciente WHERE cpf = var_cpf;
+    IF var_tipo = 1 THEN
+        resultado := 'Não dependente';
+    ELSE
+        resultado := 'Dependente';
+    END IF;
+    RETURN resultado;
+END;
 
-CREATE OR REPLACE PROCEDURE list_pacientes(tipo paciente.paciente_tipo%type)
+CREATE OR REPLACE PROCEDURE listar_pacientes_tipo(tipo paciente.paciente_tipo%type)
 AS
     CURSOR pac IS SELECT * FROM paciente;
     pac_r pac%ROWTYPE;
@@ -38,13 +50,24 @@ EXCEPTION
         dbms_output.put_line('Paciente nao encontrado!');
 END;
 
-CREATE OR REPLACE TRIGGER verificaTipo
+CREATE OR REPLACE TRIGGER verificar_paciente_tipo
 BEFORE INSERT OR UPDATE ON paciente
 FOR EACH ROW
-  BEGIN
+BEGIN
     IF :NEW.tipo NOT IN (1, 2) THEN
         RAISE_APPLICATION_ERROR(-20015, 'Os tipos permitidos são 1 ou 2.');
     ELSE
         DBMS_OUTPUT.PUT_LINE('Operação realizada com sucesso.');
     END IF; 
-  END verificaTipo;
+END;
+
+CREATE OR REPLACE TRIGGER verificar_funcionario_tipo
+BEFORE INSERT OR UPDATE ON funcionario
+FOR EACH ROW
+BEGIN
+    IF :NEW.tipo NOT IN (1, 2) THEN
+        RAISE_APPLICATION_ERROR(-20015, 'Os tipos permitidos são 1 ou 2.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Operação realizada com sucesso.');
+    END IF; 
+END;
