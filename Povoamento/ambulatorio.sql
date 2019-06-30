@@ -1,0 +1,21 @@
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (1, 'Ambulatorio de Emergência Israelita A. Einstein');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (2, 'Ambulatorio de Pediatria Centro Clinico de Recife');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (3, 'Ambulatorio de Emergência Nova Manhã');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (4, 'Ambulatorio de Ortopedia Hospital Lorenzo');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (5, 'Ambulatorio de Ginecologia Hospital da Mulher');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (6, 'Ambulatorio de Clínica Geral Instituto Humanize');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (7, 'Ambulatorio de Emergência São Pedro');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (8, 'Ambulatorio de Pediatria Hospital de Recife');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (9, 'Ambulatorio de Pediatria Hospital Memorial Guararapes');
+INSERT INTO ambulatorio(cod_ambulatorio, nome) VALUES (10, 'Ambulatorio de Ginecologia Nova Geração');
+
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (1, '43.765.066/0030-01');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (2, '76.454.983/1001-07');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (3, '09.542.094/0066-23');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (4, '92.975.863/2490-43');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (5, '95.236.438/1846-06');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (6, '62.234.303/9904-69');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (7, '49.106.084/8592-85');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (8, '65.236.768/5910-75');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (9, '14.841.901/4852-19');
+INSERT INTO hospital_ambulatorio(cod_ambulatorio, cod_hospital) VALUES (1, '17.547.357/0123-06');
