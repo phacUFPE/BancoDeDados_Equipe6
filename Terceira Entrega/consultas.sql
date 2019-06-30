@@ -17,16 +17,15 @@ INNER JOIN consulta cons ON cons.cod_paciente = pac.cpf
 INNER JOIN funcionario func ON cons.cod_funcionario = func.cpf
 WHERE func.cpf = 84758502975;
 
-SELECT * FROM ambulatorio amb
+SELECT * FROM ambulatorio
 WHERE NOT EXISTS
-(SELECT * FROM funcionario func
-INNER JOIN trabalha trab ON trab.cod_ambulatorio = amb.cod_ambulatorio);
+(SELECT * FROM funcionario);
 
 SELECT func.nome, COUNT(trf.tarefas) FROM tarefas trf
 INNER JOIN funcionario func ON func.cpf = trf.cod_funcionario
 HAVING COUNT(trf.tarefas) >= 5;
 
-SELECT hosp.nome FROM hospital hosp 
-INNER JOIN hospital_ambulatorio ha ON ha.cod_hospital = hosp.CNPJ 
-WHERE NOT EXISTS 
-(SELECT * FROM ambulatorio amb WHERE amb.cod_ambulatorio = ha.cod_ambulatorio);
+SELECT * FROM hospital hosp
+INNER JOIN hospital_ambulatorio hamb ON hamb.cod_hospital = hosp.cnpj
+WHERE EXISTS
+(SELECT * FROM ambulatorio);
