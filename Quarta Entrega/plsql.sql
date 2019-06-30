@@ -1,6 +1,5 @@
 -- ESTA PODE N√ÉO ESTAR CERTA
-CREATE OR REPLACE TRIGGER funcionario_tarefas ON tarefas BEFORE INSERT
-AS
+CREATE OR REPLACE TRIGGER funcionario_tarefas BEFORE INSERT ON tarefas FOR EACH ROW
 DECLARE
     max_trf INT NOT NULL DEFAULT 10;
     trf_count INT NOT NULL DEFAULT 0;
@@ -13,21 +12,28 @@ END;
 
 ----------------------------
 
-CREATE OR REPLACE FUNCTION dependente (var_cpf IN paciente.cpf%type)
-RETURN BOOLEAN
-IS
-   nome_paciente paciente.nome%type;
-   var_tipo paciente.paciente_tipo%type;
-
+CREATE OR REPLACE PROCEDURE list_pacientes(tipo paciente.paciente_tipo%type)
+AS
+    CURSOR pac IS SELECT * FROM paciente;
+    pac_r pac%ROWTYPE;
 BEGIN
-    SELECT nome, paciente_tipo INTO nome_paciente, var_tipo FROM paciente WHERE cpf = var_cpf;
-    IF var_tipo = 2 THEN
-        RETURN TRUE;
+    OPEN pac;
+    IF tipo = 1 THEN
+        dbms_output.put_line('N„o depedentes:');
+    ELSIF tipo = 2 THEN
+        dbms_output.put_line('Depedentes:');
+    ELSE
+        RAISE_APPLICATION_ERROR(-20343, 'Numero fora do intervalo (1,2)');
     END IF;
-    RETURN FALSE;
+    LOOP
+        FETCH pac INTO pac_r;
+        IF pac_r.paciente_tipo = tipo THEN
+            dbms_output.put_line(pac_r.cpf || ' | ' || pac_r.nome);
+        END IF;
+        EXIT WHEN pac%NOTFOUND;
+    END LOOP;
+    CLOSE pac;
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
         dbms_output.put_line('Paciente nao encontrado!');
-    WHEN OTHERS THEN
-        dbms_output.put_line('Erro desconhecido!');
 END;
