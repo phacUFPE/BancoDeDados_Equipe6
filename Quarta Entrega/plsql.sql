@@ -37,3 +37,14 @@ EXCEPTION
     WHEN NO_DATA_FOUND THEN
         dbms_output.put_line('Paciente nao encontrado!');
 END;
+
+CREATE OR REPLACE TRIGGER verificaTipo
+BEFORE INSERT OR UPDATE ON paciente
+FOR EACH ROW
+  BEGIN
+    IF :NEW.tipo NOT IN (1, 2) THEN
+        RAISE_APPLICATION_ERROR(-20015, 'Os tipos permitidos são 1 ou 2.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Operação realizada com sucesso.');
+    END IF; 
+  END verificaTipo;
