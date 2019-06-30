@@ -28,8 +28,8 @@ CREATE TABLE funcionario(
     endereco VARCHAR(255),
     data_nascimento DATE,
     data_contratacao DATE,
-    COREN VARCHAR(9) UNIQUE,
-    CRM VARCHAR(13) UNIQUE,
+    COREN VARCHAR(9),
+    CRM VARCHAR(13),
     funcionario_tipo VARCHAR(255)
 );
 
