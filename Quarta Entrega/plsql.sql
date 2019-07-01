@@ -1,11 +1,11 @@
+CREATE EXCEPTION limite_tarefas 'Esse funcionario não pode ter mais tarefas!';
 CREATE OR REPLACE TRIGGER funcionario_tarefas BEFORE INSERT ON tarefas FOR EACH ROW
 DECLARE
-    max_trf INT NOT NULL DEFAULT 10;
+    max_trf INT NOT NULL DEFAULT 5;
     trf_count INT NOT NULL DEFAULT 0;
 BEGIN
-    SELECT COUNT(*) INTO trf_count FROM tarefas WHERE cod_funcionario = :new.cod_funcionario;
-    IF trf_count > max_trf THEN
-        dbms_output.put_line('Este funcionario nao pode ter mais tarefas!');
+    IF (SELECT COUNT(*) FROM tarefas WHERE cod_funcionario = :new.cod_funcionario) > max_trf
+        RAISE_APPLICATION_ERROR(-20343, 'Funcionarios não podem ter mais de 5 tarefas.');
     END IF;
 END;
 
