@@ -1,11 +1,11 @@
-CREATE EXCEPTION limite_tarefas 'Esse funcionario não pode ter mais tarefas!';
 CREATE OR REPLACE TRIGGER funcionario_tarefas BEFORE INSERT ON tarefas FOR EACH ROW
 DECLARE
     max_trf INT NOT NULL DEFAULT 5;
     trf_count INT NOT NULL DEFAULT 0;
 BEGIN
-    IF (SELECT COUNT(*) FROM tarefas WHERE cod_funcionario = :new.cod_funcionario) > max_trf
-        RAISE_APPLICATION_ERROR(-20343, 'Funcionarios não podem ter mais de 5 tarefas.');
+    SELECT COUNT(*) INTO trf_count FROM tarefas WHERE cod_funcionario = :new.cod_funcionario) > max_trf;
+    IF trf_count >= max_trf THEN
+        RAISE_APPLICATION_ERROR(-20343, 'Funcionarios nao podem ter mais de 5 tarefas.');
     END IF;
 END;
 
@@ -17,7 +17,7 @@ IS
 BEGIN
     SELECT paciente_tipo INTO var_tipo FROM paciente WHERE cpf = var_cpf;
     IF var_tipo = 1 THEN
-        resultado := 'Não dependente';
+        resultado := 'Nao dependente';
     ELSE
         resultado := 'Dependente';
     END IF;
@@ -33,7 +33,7 @@ AS
 BEGIN
     OPEN pac;
     IF tipo = 1 THEN
-        dbms_output.put_line('Não depedentes:');
+        dbms_output.put_line('Nao depedentes:');
     ELSIF tipo = 2 THEN
         dbms_output.put_line('Depedentes:');
     ELSE
@@ -58,10 +58,10 @@ CREATE OR REPLACE TRIGGER verificar_paciente_tipo
 BEFORE INSERT OR UPDATE ON paciente
 FOR EACH ROW
 BEGIN
-    IF :NEW.tipo NOT IN (1, 2) THEN
-        RAISE_APPLICATION_ERROR(-20015, 'Os tipos permitidos são 1 ou 2.');
+    IF :new.paciente_tipo NOT IN (1, 2) THEN
+        RAISE_APPLICATION_ERROR(-20015, 'Os tipos permitidos sao 1 ou 2.');
     ELSE
-        DBMS_OUTPUT.PUT_LINE('Operação realizada com sucesso.');
+        DBMS_OUTPUT.PUT_LINE('Operacao realizada com sucesso.');
     END IF; 
 END;
 
@@ -69,9 +69,9 @@ CREATE OR REPLACE TRIGGER verificar_funcionario_tipo
 BEFORE INSERT OR UPDATE ON funcionario
 FOR EACH ROW
 BEGIN
-    IF :NEW.tipo NOT IN (1, 2) THEN
-        RAISE_APPLICATION_ERROR(-20015, 'Os tipos permitidos são 1 ou 2.');
+    IF :new.funcionario_tipo NOT IN (1, 2) THEN
+        RAISE_APPLICATION_ERROR(-20015, 'Os tipos permitidos sao 1 ou 2.');
     ELSE
-        DBMS_OUTPUT.PUT_LINE('Operação realizada com sucesso.');
+        DBMS_OUTPUT.PUT_LINE('Operacao realizada com sucesso.');
     END IF; 
 END;
