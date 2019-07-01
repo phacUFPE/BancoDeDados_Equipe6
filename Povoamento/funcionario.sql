@@ -7,8 +7,8 @@ INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, 
 
 -- ENFERMEIROS
 
-INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (78593847254, 'Mariele Fonseca Silva', 'Av. Min. Joaquim Barbosa, Embiribeira, 176', DATE '1990-05-18', DATE '2017-04-10', '186938-PE', 2);
-INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (78593847254, 'Jonas Marivaldo', 'Rua Alcapão, Rio Doce, 7849', DATE '1979-09-13', DATE '2001-11-21', '384917-PE', 2);
-INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (78593847254, 'Rivaldo Vieira de Gonzaga', 'Rua Dorisvaldo de Vanilla, Cavalo Branco, 1859', DATE '1975-02-15', DATE '1995-06-10', '075839-SP', 2);
-INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (78593847254, 'Lorena Franciele de Moraes', 'Rua Marivaldo José da Silva, Gonzaga, 303-2', DATE '1988-12-28', DATE '2010-03-24', '305831-AM', 2);
-INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (78593847254, 'Jesus Colombo da França', 'Av. Pedro Alvarez Cabral, Casa Amarela, 8471', DATE '1983-07-30', DATE '2007-04-20', '280984-RS', 2);
+INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (18495746372, 'Mariele Fonseca Silva', 'Av. Min. Joaquim Barbosa, Embiribeira, 176', DATE '1990-05-18', DATE '2017-04-10', '186938-PE', 2);
+INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (34465472455, 'Jonas Marivaldo', 'Rua Alcapão, Rio Doce, 7849', DATE '1979-09-13', DATE '2001-11-21', '384917-PE', 2);
+INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (97591038673, 'Rivaldo Vieira de Gonzaga', 'Rua Dorisvaldo de Vanilla, Cavalo Branco, 1859', DATE '1975-02-15', DATE '1995-06-10', '075839-SP', 2);
+INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (13765840271, 'Lorena Franciele de Moraes', 'Rua Marivaldo José da Silva, Gonzaga, 303-2', DATE '1988-12-28', DATE '2010-03-24', '305831-AM', 2);
+INSERT INTO funcionario(CPF, nome, endereco, data_nascimento, data_contratacao, COREN, funcionario_tipo) VALUES (67830608774, 'Jesus Colombo da França', 'Av. Pedro Alvarez Cabral, Casa Amarela, 8471', DATE '1983-07-30', DATE '2007-04-20', '280984-RS', 2);
